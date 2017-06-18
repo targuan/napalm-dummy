@@ -13,34 +13,20 @@
 # the License.
 
 """
-Napalm driver for Dummy.
+Dummy driver that does nothing.
 
 Read https://napalm.readthedocs.io for more information.
 """
 
 from napalm_base.base import NetworkDriver
-from napalm_base.exceptions import (
-    ConnectionException,
-    SessionLockedException,
-    MergeConfigException,
-    ReplaceConfigException,
-    CommandErrorException,
-    )
-
 
 class DummyDriver(NetworkDriver):
-    """Napalm driver for Dummy."""
+    """Dummy driver, does nothing."""
 
     def __init__(self, hostname, username, password, timeout=60, optional_args=None):
         """Constructor."""
+        # Pass method_signatures test
         self.device = None
-        self.hostname = hostname
-        self.username = username
-        self.password = password
-        self.timeout = timeout
-
-        if optional_args is None:
-            optional_args = {}
 
     def open(self):
         """Implementation of NAPALM method open."""
